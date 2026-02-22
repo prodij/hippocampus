@@ -41,6 +41,16 @@ Connect new knowledge to existing schemas:
 - Update **kaizen log** if a cycle progressed or completed
 - Update **HIPPOCAMPUS.md** focus/queue based on what's actually active
 
+## Phase 6: ASSOCIATE (genius mode)
+Creative cross-domain linking — the Default Mode Network equivalent:
+- Read MEMORY.md Mental Models section
+- Ask: "Does anything from today map to an existing mental model?"
+- Ask: "Did two unrelated events today share an underlying pattern?"
+- Ask: "Can a solution from one domain apply to a problem in another?"
+- If a new cross-domain pattern emerges → add to Mental Models
+- Update HIPPOCAMPUS.md Cross-Thread Insights with any new connections
+- This is where breakthroughs come from: connecting trading to neuroscience to software
+
 ## Output
 Write a brief consolidation log to daily notes:
 ```markdown
