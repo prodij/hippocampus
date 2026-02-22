@@ -45,7 +45,7 @@ Every pin MUST have an expiration trigger:
 ```
 No open-ended pins. If you can't name when it expires, it belongs in MEMORY.md.
 
-## MEMORY.md — What Earns Space (<4KB)
+## MEMORY.md — What Earns Space (relevance-based)
 
 ### IN (curated long-term)
 - About J (identity, preferences, communication style)
