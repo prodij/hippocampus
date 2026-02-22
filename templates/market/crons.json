@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "description": "Market-specific hippocampus flush crons. Merge into your existing jobs.json.",
+  "jobs": [
+    {
+      "id": "hippocampus-premarket",
+      "name": "Pre-Market Memory Load",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 8 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Pre-market memory load. Read skills/kaizen/references/market-flush-protocol.md Pre-Market section. Clear HIPPOCAMPUS.md of all yesterday's data. Fetch fresh GEX/vanna levels. Check economic calendar for today. Write regime hypothesis. If market is closed today (holiday), skip and reply NO_REPLY.",
+        "thinking": "low",
+        "timeoutSeconds": 90
+      }
+    },
+    {
+      "id": "hippocampus-postopen",
+      "name": "Post-Open Regime Assessment",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Post-open assessment. Read skills/kaizen/references/market-flush-protocol.md Post-Open section. Update HIPPOCAMPUS.md with actual regime from first 30 min. Was the pre-market hypothesis correct? Log any positions. Note any surprising flow. If market is closed today, reply NO_REPLY.",
+        "thinking": "low",
+        "timeoutSeconds": 60
+      }
+    },
+    {
+      "id": "hippocampus-midday",
+      "name": "Midday Memory Flush",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 12 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Midday flush. Read skills/kaizen/references/market-flush-protocol.md Midday section. Write morning trade log to daily notes with salience tags. Compress HIPPOCAMPUS.md — remove stale morning context. Check live positions. Has regime changed? Check context % — if >60% flush aggressively. If market is closed today, reply NO_REPLY.",
+        "thinking": "low",
+        "timeoutSeconds": 60
+      }
+    },
+    {
+      "id": "hippocampus-eod",
+      "name": "EOD Memory Flush",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "20 16 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "EOD flush. Read skills/kaizen/references/market-flush-protocol.md EOD section. Write all remaining positions and P&L to daily notes. Tag every trade with salience. Write EOD summary. Clear HIPPOCAMPUS.md to clean template state. If market was closed today, reply NO_REPLY.",
+        "thinking": "low",
+        "timeoutSeconds": 90
+      }
+    },
+    {
+      "id": "hippocampus-sleep",
+      "name": "Sleep Consolidation",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Nightly sleep consolidation. Read skills/kaizen/references/sleep-consolidation.md and follow all 5 phases. Also read skills/kaizen/references/market-flush-protocol.md Sleep section for market-specific additions. Review today's trades, update MEMORY.md win rates, extract patterns from any 🔴 HIGH tagged events. Keep changes conservative — when unsure whether to prune, keep.",
+        "thinking": "low",
+        "timeoutSeconds": 120
+      }
+    }
+  ]
+}
